@@ -1,0 +1,609 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<math.h>
+#include<time.h>
+struct su{
+char id[50];	
+char name[50];
+int age;
+char gender;
+char level[50];
+int score;
+}st,ut;
+
+void rule();
+void info();
+void delay(float sec)
+{
+    int milli_seconds = 1000 * sec;
+    clock_t start_time = clock();
+    while (clock() < start_time + milli_seconds);
+}
+
+int main()
+{
+int n,j,t=0,i;
+char id[50];
+char per_id[50];
+int p,q;
+
+FILE *f,*a,*b,*c,*d,*e;
+    system("cls");
+  	printf("*****************************************************************************************************************\n\n\n\n");
+    printf("Restricted Area Loading");
+    for(i=0; i<4; i++)
+	{
+        printf(".");
+        delay(0.4);
+    }
+    	printf("\n\n\n\n*****************************************************************************************************************\n");
+        delay(0.4);
+	system("cls");
+	printf("\n\n\n\n*****************************************************************************************************************\n");
+    printf("\n\n\n\n\nWELCOME TO THE GAME >< \n\n\n");
+    printf("PLEASE REGISTER BEFORE PLAYING :3 \n\n\n");
+    printf("\n\n\n\n*****************************************************************************************************************\n");
+    delay(1);
+    system("cls");
+    there:
+    printf("\nPress 1 to continue\n");
+     scanf("%d%*c",&j);
+	if(j==1)
+	{
+	printf("\n\nProcessing");
+    for(i=0; i<4; i++){
+        printf(".");
+        delay(0.4);
+	}
+	}
+	else
+	{	
+	goto there;
+	}
+    system("cls");
+    f=fopen("name.txt","a");
+	if(f==NULL)
+	{
+     printf("error while creating a file");
+	}
+	else
+	{
+		here:
+      printf("\n\n\nEnter UserId\n");
+      scanf("%[^\n]%*c",st.id);
+      e=fopen("name.txt","r");
+	while(fscanf(e,"%[^\n]\n%[^\n]\n%d\n%c\n%s\n",&ut.id,&ut.name,&ut.age,&ut.gender,&ut.level)!=EOF)
+	{
+	if(strcmp(ut.id,st.id)==0)
+	{
+		printf("\nThe UserId is taken\n\n");
+		goto here;
+	fclose(e);
+	}
+	}
+     printf("\n\nEnter name\n");
+     scanf("%[^\n]",st.name);
+     printf("\nEnter age\n");
+     scanf("%d%*c",&st.age);
+     printf("\nEnter gender(F/M/O)\n");
+     scanf("%c%*c",&st.gender);
+     printf("\nEnter level(Student/Teacher/Outsider)\n");
+     scanf("%[^\n]",st.level);
+     fprintf(f,"%s\n%s\n%d\n%c\n%s\n",st.id,st.name,st.age,st.gender,st.level);
+     printf("\n______________________________________________________\n");
+     printf("\n\nRegistered Sucessfully");
+     fclose(f);
+     strcpy(per_id, st.id);
+}
+
+select:
+     printf("\n______________________________________________________\n\n");
+     printf("press 1:For rules\n\n");
+     printf("press 2:For the information of score and cash prize\n\n");
+     printf("press 3:For warm up game\n\n");
+     printf("press 4:For starting the game\n\n");
+     printf("press 5:To view score current score\n\n");
+     printf("press 6:to view all players score \n\n");
+     printf("press 7:to delete  \n\n");
+     printf("press 8:To end \n\n");
+     printf("______________________________________________________\n\n\n");
+     scanf("%d%*c",&n);
+     system("cls");
+     switch (n)
+{
+
+
+case 1: 
+	 rule();
+      delay(1.5);
+	  goto select;
+	  system("cls");
+
+case 2: 
+     info();
+    delay(1.5);
+    goto select;
+    system("cls");
+
+    case 3:
+    	printf("\n");
+    	printf("*****************************************************************************************************************\n");
+      printf("WARM UP GAME IS DIFFERENT FROM ACTUAL GAME\n\n");
+      printf("You can keep on answering even if wrong answer is provided\n\n");
+      printf("The following are the gk questions\n\n");
+     printf("\n*******************************************************************************************************************\n");
+     delay(1.5);
+	 system("cls");
+	 int i=0;
+  {
+     int a;
+      printf("1). How many legs does a spider have?\n\n\n");
+      printf(" 1.9 \n\n 2.6 \n\n 3.8 \n\n 4.5\n\n");
+      scanf("%d",&a);
+      if(a==3)
+     {
+      printf("\nYou are correct ");
+      i=i+1;
+     }
+     else
+     {
+      printf("\nSorry wrong answer !!");
+     }
+      }
+     {
+     int a;
+      printf("\n\n\n2). What is something you hit with a hammer?\n\n\n");
+      printf(" 1.Wall \n\n 2.Cup \n\n 3.Ice \n\n 4.Nail\n\n");
+      scanf("%d",&a);
+      if(a==4)
+      {
+      printf("\nYou are correct ");
+      i=i+1;
+        }
+     else
+      {
+      printf("\nSorry wrong answer !!");
+     }
+     }
+     {
+     int a;
+      printf("\n\n\n3). How many planets are in our solar system?\n\n\n");
+      printf(" 1.8 \n\n 2.9 \n\n 3.0 \n\n 4.15\n\n");
+      scanf("%d",&a);
+      if(a==1)
+      {
+      printf("\nYou are correct ");
+      i=i+1;
+      }
+      else
+     {
+      printf("\nSorry wrong answer !!");
+     }
+     }
+    {
+     int a;
+      printf("\n\n\n4).What is a doe?\n\n\n");
+      printf(" 1.Animal \n\n 2.Gas \n\n 3.Female deer \n\n 4.Flour\n\n");
+      scanf("%d",&a);
+      if(a==3)
+     {
+      printf("\nYou are correct ");
+      i=i+1;
+      }
+     else
+      {
+       printf("\nSorry wrong answer !!");
+     }
+     }
+      {
+     int a;
+      printf("\n\n\n5). Name a bird that lays the largest eggs?\n\n\n");
+      printf(" 1.Hen \n\n 2.Ostrich \n\n 3.Parrot \n\n 4.Vulture\n\n");
+      scanf("%d",&a);
+      if(a==2)
+      {
+      printf("\nYou are correct ");
+      i=i+1;
+     }
+      else
+     {
+     printf("\nSorry wrong answer !!");
+     }
+     }
+     {
+     int a;
+      printf("\n\n\n6). How many days are in a year?\n\n\n");
+      printf(" 1.365 \n\n 2.366 \n\n 3.1 \n\n 4.12\n\n");
+      scanf("%d",&a);
+      if(a==1)
+     {
+      printf("\nYou are correct ");
+      i=i+1;
+     }
+     else
+      {
+      printf("\nSorry wrong answer !!");
+     }
+     }
+    {
+     int a;
+      printf("\n\n\n7).What is the largest mammal in the world?\n\n\n");
+      printf(" 1.Cat \n\n 2.Rabbit\n\n 3.Mother \n\n 4.Whale\n\n");
+      scanf("%d",&a);
+      if(a==4)
+     {
+      printf("\nYou are correct ");
+      i=i+1;
+     }
+     else
+     {
+      printf("\nSorry wrong answer !!");
+     }
+     }
+    {
+     int a;
+      printf("\n\n\n8).Which country is home to the kangaroo?\n\n\n");
+      printf(" 1.Tibet \n\n 2.Australia \n\n 3.Paris \n\n 4.America\n\n");
+      scanf("%d",&a);
+      if(a==2)
+     {
+      printf("\nYou are correct ");
+      i=i+1;
+     }
+     else
+     {
+      printf("\nSorry wrong answer !!");
+     }
+    }
+    {
+     int a;
+      printf("\n\n\n9).Who was the first man to step on the moon?\n\n\n");
+      printf(" 1.Neil Armstrong \n\n 2.Geris mahobat \n\n 3.Buzz Aldrin \n\n 4.Alan Shepard \n\n");
+      scanf("%d",&a);
+      if(a==1)
+     {
+      printf("\nYou are correct ");
+      i=i+1;
+     }
+     else
+      {
+      printf("\nSorry wrong answer !!");
+     }
+    }
+    {
+     int a;
+      printf("\n\n\n10). What is considered to be the world’s first cash crop?\n\n\n");
+      printf(" 1.Maize \n\n 2.Wheat \n\n 3.Rice \n\n 4.Tea\n\n");
+      scanf("%d",&a);
+      if(a==4)
+     {
+      printf("\nYou are correct ");
+      i=i+1;
+     }
+     else
+     {
+     printf("\nSorry wrong answer !!");
+     }
+    }
+     printf("\n\n\n*******************************************************************************************************************\n");
+    printf("\n\n\nYOUR SCORE IS %d",i);
+     goto select;
+    system("cls");
+    case 4:
+    {
+int i,a[10],n=0;
+ printf("\nWELCOME TO THE GAME BRAIN CHAMP\n\n");
+ printf("\nGAME WILL TERMINATE IF WRONG ANSWER IS GIVEN\n");
+ printf("\n*******************************************************************************************************************\n");
+ printf("\n");
+ delay(1.5);
+ system("cls");
+ 
+ 
+ for(i=1;i<=10;i++)
+ {
+  n=0;
+  switch(i)
+  {
+  case 1:
+   printf("\n\n\nHow many continents are there in the world?\n\n1.Seven \n\n2.Three \n\n3.Nine \n\n4.Many\n\n ");
+   scanf("%d",&n);
+   if(n==1)
+   {
+     printf("\n\nYou have entered the correct answer Now you have won Rs.%d000 Your Next Question is ",i);
+     t=i;
+   }
+   else
+   {
+    printf("\n\nYou have entered the wrong answer Better Luck Next Time You have earned Rs.%d000",i-1);
+    t=i-1;
+    i=11;
+   }
+   break;
+  case 2:
+   printf("\n\n\n What kind of tree do acorns come from?\n\n1.Kasmir \n\n2.Oak \n\n3.Store \n\n4.Market \n\n");
+   scanf("%d",&n);
+   if(n==2)
+   {
+     printf("\n\nYou have entered the correct answer Now you have won Rs.%d000 Your Next Question is ",i);
+     t=i;
+   }
+   else
+   {
+    printf("\n\nYou have entered the wrong answer Better Luck Next Time You have earned Rs.%d000",i-1);
+    t=i-1;
+    i=11;
+   }
+   break;
+  case 3:
+   printf("\n\n\nHow many bones do sharks have? \n\n1.Seven\n\n2.Ten \n\n3.One \n\n4.Zero\n \n");
+   scanf("%d",&n);
+   if(n==4)
+   {
+     printf("\n\nYou have entered the correct answer Now you have won Rs.%d000 Your Next Question is ",i);
+     t=i;
+   }
+   else
+   {
+    printf(" \n\nYou have entered the wrong answer Better Luck Next Time You have earned Rs.%d000",i-1);
+    t=i-1;
+    i=11;
+   }
+   break;
+ case 4:
+   printf("\n\n\nCan you name the closest star to Earth?  \n\n1.Sun \n\n2.Moon \n\n3.Sirius \n\n4.Arcturus\n\n");
+   scanf("%d",&n);
+   if(n==1)
+   {
+     printf("\n\n\nYou have entered the correct answer Now you have won Rs.%d000 Your Next Question is ",i);
+     t=i;
+   }
+   else
+   {
+    printf("\n \nYou have entered the wrong answer Better Luck Next Time You have earned Rs.%d000",i-1);
+    t=i-1;
+    i=11;
+   }
+   break;
+  case 5:
+   printf("\n\n\nWhat do you get when you boil water?\n\n1.Dust \n\n2.Air \n\n3.Steam \n\n4.Oxygen\n\n");
+   scanf("%d",&n);
+   if(n==3)
+   {
+     printf("\n\nYou have entered the correct answerNow you have wonRs.%d000Your Next Question is",i);
+     t=i;
+   }
+   else
+   {
+    printf("\n\nYou have entered the wrong answerBetter Luck NextTimeYou have earned Rs.%d000",i-1);
+    t=i-1;
+    i=11;
+   }
+   break;
+   case 6:
+   printf("\n\n\nWhat is the largest continent?\n\n1.Eurasia\n\n2.Australia\n\n3.Antartica\n\n4.Asia\n\n");
+   scanf("%d",&n);
+   if(n==4)
+   {
+     printf("\n\nYou have entered the correct answerNow you have wonRs.%d000Your Next Question is",i);
+     t=i;
+   }
+   else
+   {
+    printf("\n\nYou have entered the wrong answerBetter Luck NextTimeYou have earned Rs.%d000",i-1);
+    t=i-1;
+    i=11;
+   }
+   break;
+   case 7:
+   printf("\n\n\nWhat is the tallest mountain in the world?\n\n1.Mt Everest\n\n2.Mt Fuji\n\n3.Mt.K2\n\n4.Mt.Changbai\n\n");
+   scanf("%d",&n);
+   if(n==1)
+   {
+     printf("\n\nYou have entered the correct answerNow you have wonRs.%d000Your Next Question is",i);
+     t=i;
+   }
+   else
+   {
+    printf("\n\nYou have entered the wrong answerBetter Luck NextTimeYou have earned Rs.%d000",i-1);
+    t=i-1;
+    i=11;
+   }
+   break;
+   case 8:
+   printf("\n\n\nHow many Great Lakes are there?\n\n1.1\n\n2.5\n\n3.6\n\n4.4\n\n");
+   scanf("%d",&n);
+   if(n==2)
+   {
+     printf("\n\nYou have entered the correct answerNow you have wonRs.%d000Your Next Question is",i);
+     t=i;
+   }
+   else
+   {
+    printf("\n\nYou have entered the wrong answerBetter Luck NextTimeYou have earned Rs.%d000",i-1);
+    t=i-1;
+    i=11;
+   }
+   break;
+   case 9:
+   printf("\n\n\nHow many Rings does Olympic Symbol have?\n\n1.3\n\n2.2\n\n3.6\n\n4.5\n\n");
+   scanf("%d",&n);
+   if(n==4)
+   {
+     printf("\n\nYou have entered the correct answerNow you have wonRs.%d000Your Next Question is",i);
+     t=i;
+   }
+   else
+   {
+    printf("\n\nYou have entered the wrong answerBetter Luck NextTimeYou have earned Rs.%d000",i-1);
+    t=i-1;
+    i=11;
+   }
+   break;
+   case 10:
+   printf("\n\n\nHow many colours are there in rainbow\n\n1.Colourful\n\n2.8\n\n3.7\n\n4.9\n\n");
+   scanf("%d",&n);
+   if(n==3)
+   {
+     printf("\n\nYou have entered the correct answerNow you have wonRs.%d000",i);
+     t=i;
+   }
+   else
+   {
+    printf("\n\nYou have entered the wrong answerBetter Luck NextTimeYou have earned Rs.%d000",i-1);
+    t=i-1;
+    i=12;
+   }
+   break;
+   default:
+  printf("\n\nGame Completed");
+  break;
+   }
+   }
+   }
+   if(t>=1 && t<=9){
+	a = fopen("Every list.txt", "a");
+	fprintf(a,"%s\n%s\n%d\n",st.id,st.name,t);
+	fclose(a);
+	}
+	else if(t==10)
+	{
+	a = fopen("Every list.txt", "a");
+	fprintf(a,"%s\n%s\n%d\n",st.id,st.name,t);
+	fclose(a);
+	}
+	else
+	{
+	a = fopen("Every list.txt", "a");
+	t=0;
+	fprintf(a,"%s\n%s\n%d\n",st.id,st.name,t);
+	fclose(a);
+	}
+   printf("\n\n*******************************************************************************************************************\n");
+   goto select;
+   system("cls");
+    
+case 5:
+	f=fopen("name.txt","r");
+	if(f==NULL)
+	{
+	printf("Error!!!!");
+	}
+	else{
+	while(fscanf(f,"%[^\n]\n%[^\n]\n%d\n%c\n%s\n",&ut.id,&ut.name,&ut.age,&ut.gender,&ut.level) != EOF){
+	if(strcmp(per_id,ut.id)==0){
+	break;
+	}
+	}
+	printf("\n\nUserId:%s",ut.id);
+	printf("\n\nName:%s",ut.name);
+	printf("\n\nAge:%d",ut.age);
+	printf("\n\nGender:%c",ut.gender);
+	printf("\n\nLevel:%s",ut.level);
+	}
+	fclose(f);
+ 	if(t>=1 && t<=9){
+	printf("\n\nYOUR SCORE IS %d\n",t);
+	printf("\n\nYOUR CASH IS %d000",t);
+	}
+	else if(t==10)
+	{
+	printf("\n\nYOUR SCORE IS PERFECT %d\n",t);
+    printf("\n\nYOUR CASH IS %d000",t);
+    }
+    else
+    {
+    printf("\n\n you have no score\n\n");
+    }
+    printf("\n*******************************************************************************************************************\n");
+    goto select;
+    system("cls");
+
+
+case 6:
+   b= fopen("Every list.txt","r");
+   while(fscanf(b,"%[^\n]\n%[^\n]\n%d\n",&ut.id,&ut.name,&t)!= EOF)
+   {
+   printf("\n%s\t%s\t%d\n",ut.id,ut.name,t);
+   }
+   fclose(b);
+   printf("\n\n\n*******************************************************************************************************************\n");
+   goto select;
+   system("cls");
+
+
+case 7:
+    printf("\n*******************************************************************************************************************\n");
+    printf("\n\n PLEASE DO REMEMBER YOU CAN ONLY DELETE YOUR OWN RECORD ONLY");
+	printf("\n\n\nEnter your id\n");
+	scanf("%[^\n]",id);
+	a = fopen("Every list.txt", "r");
+	c= fopen("new.txt","w");
+	while(fscanf(a,"%[^\n]\n%[^\n]\n%d\n",&ut.id,&ut.name,&t)!= EOF)
+	{
+	if(strcmp(id,ut.id )!= 0)
+	{
+		fprintf(c,"%s\n%s\n%d\n",ut.id,ut.name,t);
+	}
+	}
+	printf("*****************************************************************************************************************\n\n\n\n");
+    printf("Updating");
+    for(i=0; i<4; i++)
+	{
+        printf(".");
+        delay(0.4);
+    }
+ 
+        fclose(a);
+		fclose(c);	
+		remove("Every list.txt");
+	rename("new.txt","Every list.txt");
+    printf("\n\n\n*******************************************************************************************************************\n");
+    goto select;
+    system("cls");
+
+case 8:
+          printf("\n*******************************************************************************************************************\n");
+          printf("\nThank you for your moment with us \n");
+          printf("\n*******************************************************************************************************************\n");
+	break;  
+system("cls");
+
+default:
+    	     printf("\n*******************************************************************************************************************\n");
+             printf("\nYou pressed wrong bottom \n\nYOU ARE OUT OF GAME");
+             printf("\n\nTHANK YOU FOR PLAYING");
+             printf("\n\nThank you for you time\n\nYou are gem and precious\n");
+             printf("\n*******************************************************************************************************************\n");
+    break;
+}
+	
+return 0;
+}
+
+void rule()
+{
+	   printf("*******************************************************************************************************************\n");
+       printf("1)YOU NEED TO REGISTER BEFORE PLAYING.\n\n");
+       printf("\n2)You should solve the question by you ownself .\n\n\nHelp of second party will cause disqualification.\n\n\n");
+       printf("3)You should solve a question with in a minute.\n\n\n");
+       printf("4)There are one section of the test .\n\n\n");
+       printf("5)There are 10 question out of which it contents GK nad IQ\n\n\n");
+       printf("6)Follow the etiquette rules.\n\n\n");
+       printf("7)You are allowed to choose the answer only once.\n\n\n");
+       printf("\n*******************************************************************************************************************\n");
+	
+}
+
+void info()
+{
+        printf("*******************************************************************************************************************\n");
+        printf("\n\n1)To observe the score of all you need to press 6");
+        printf("\n\n2)The score for the warm up game will be mentioned below");
+        printf("\n\n3)To view the score of actual game press 5");
+	    printf("\n\n4)cash prize will be giving out in from of check");	
+	    printf("\n\n*******************************************************************************************************************\n");
+}
+	
